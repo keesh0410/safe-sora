@@ -9,9 +9,7 @@ In this directory, we provide an example implementation of training a preference
 To modeling human preferences, it's common to use a preference predictor adhering to the Bradley-Terry Model. The preference data is symbolized as $y_w \succ y_{l} | x$ where $y_{w}$ denotes the more preferred video than $y_l$ corresponding to the prompt $x$.
 The log-likelihood loss used to train a parameterized predictor $R_\phi$ on dataset $\mathcal{D}$ is:
 
-$$
-\mathcal{L} (\phi; \mathcal{D}) = -\mathbb{E}_{(x,y_w,y_l)\sim \mathcal{D}} \left[\log \sigma (R_{\phi} (y_w,x) - R_{\phi} (y_l,x))\right]
-$$
+$$\mathcal{L} (\phi; \mathcal{D}) = -\mathbb{E}_{(x,y_w,y_l)\sim \mathcal{D}} \left[\log \sigma (R_{\phi} (y_w,x) - R_{\phi} (y_l,x))\right]$$
 
 Leveraging a multi-modal model architecture modified on the [Video-LLaVA](https://github.com/PKU-YuanGroup/Video-LLaVA) and training with preference data from [SafeSora Dataset](https://huggingface.co/datasets/PKU-Alignment/SafeSora), we have develop a T-V reward model.
 The language head of the vision-language model is replaced with a score regression head, which predicts the preference score of the video given the prompt.
