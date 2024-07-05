@@ -10,7 +10,7 @@ To modeling human preferences, it's common to use a preference predictor adherin
 The log-likelihood loss used to train a parameterized predictor $R_\phi$ on dataset $\mathcal{D}$ is:
 
 $$
-\mathcal{L} (\phi; \mathcal{D}) = -\mathbb{E}_{(x,y_w,y_l)\sim \mathcal{D}} \left[\log \sigma (R_{\phi} (y_w,x) - R_{\phi} (y_l,x))\right]
+\mathcal{L} (\phi; \mathcal{D}) = -\mathbb{E}_{(x,y_w,y_l)\sim \mathcal{D}} \left[\log \sigma (R_{\phi} (y_w,x) - R_{\phi} (y_l,x))\right] 
 $$
 
 Leveraging a multi-modal model architecture modified on the [Video-LLaVA](https://github.com/PKU-YuanGroup/Video-LLaVA) and training with preference data from [SafeSora Dataset](https://huggingface.co/datasets/PKU-Alignment/SafeSora), we have develop a T-V reward model.
